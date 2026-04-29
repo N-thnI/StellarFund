@@ -1,49 +1,55 @@
-# 🌟 CryptoSupport (Stellar Mini-dApp)
+🌌 StellarFund: Premium DeFi Crowdfunding
+StellarFund is a high-end, decentralized tipping and crowdfunding mini-dApp built for the Stellar ecosystem. It features a custom Obsidian, Gold, and Silver aesthetic, optimized for performance and production-ready error handling.
 
-A high-performance decentralized tipping application built for the Stellar Yellow Belt.
+🔗 Project Deliverables
+Live Demo: https://stellar-fund-three.vercel.app/
 
-## 🚀 Technical Highlights
-- **Framework:** Next.js (Vercel Optimized)
-- **SDK:** @albedo-link/intent + @stellar/stellar-sdk
+Demo Video: [Stellarfund Demo Video](./media/stellarfund.mp4)
 
-## Technical Optimization
-To ensure maximum compatibility and minimal bundle size, this dApp utilizes a direct Intent-based integration with Albedo. This reduces the dependency overhead by 85% compared to standard wallet kits, ensuring the application remains 'Vercel-ready' and extremely fast on low-power devices.
-- **Loading States:** Implementation of shimmer effects and transaction progress indicators.
-- **Error Handling:** Robust try/catch blocks with user-friendly toast notifications.
-- **Caching:** LocalStorage caching for donation history for instant UI updates.
+📺 Demo Walkthrough
+A 1-minute showcase highlighting wallet connection, loading states, and the successful funding flow.
 
-## 🛠 Setup & Testing
-1. `npm install`
-2. `npm test` (Passes 3+ meaningful logic tests)
-3. `npm run dev`
+✨ Features & "Yellow Belt" Requirements
+Loading States: Custom shimmer effects and progress indicators implemented for transaction "In-flight" status.
 
-## 🔗 Links
-- **Live Demo:** [Your Vercel Link Here]
-- **Demo Video:** [Your 1-Min Video Link]
+Advanced Error Handling: Robust try/catch logic mapping Stellar-specific errors (e.g., user cancellation, underfunded accounts) to user-friendly notifications.
 
-## Smart Contract Details
-The Soroban Rust code is located in `/contracts/crowdfund`. It features a simple state machine tracking target amounts, deadlines, and individual deposits.
+Efficient Caching: Implementation of a lightweight interaction layer to ensure instant UI responsiveness.
 
-To build and test:
-```bash
-cd contracts/crowdfund
-cargo build --target wasm32-unknown-unknown --release
-cargo test
-```
+Lightweight Integration: Utilizes @albedo-link/intent to reduce dependency overhead and ensure Vercel-ready deployments.
 
-## Troubleshooting & Error Handling
-To ensure a seamless user experience, we have deeply integrated error handling at all layers of the application. Here is how we managed the "3 Error Types":
+🎨 Design Aesthetic: Obsidian God & Silver
+A premium dark theme designed for visual authority and high-contrast user interactions.
 
-### 1. Wallet Level Errors
-When users interact with the application, we gracefully catch errors from the wallet extension.
-- **"User declined" / "User Rejected Request"**: Caught via our `handleStellarError` utility. The UI updates the toast to show "Transaction cancelled by user."
-- **"No Wallet Extension Found"**: Caught during connection and transaction phases. Alerts the user to install a supported wallet extension.
+🧪 Testing & Technical Quality
+This project maintains a 100% pass rate on core logic and error-handling tests using Vitest and jsdom.
 
-### 2. Network Level Errors
-Network errors such as insufficient balance or failing to meet base fees are evaluated from the Horizon/RPC error message.
-- **"op_underfunded" / "Insufficient Balance"**: Rendered elegantly in the UI as "Insufficient funds in your Stellar account."
+Test Suite Results:
 
-### 3. Logic Level Errors (Contract Reverts)
-Our Soroban contract validates preconditions (`deadline`, `state`). Reverts are caught natively.
-- **"Deadline Passed"**: The contract panics when the block timestamp exceeds the deadline. The UI tells the user: "The crowdfunding deadline has passed."
-- **"Goal Already Reached"**: The contract prevents further deposits if the state is `Success`. The UI informs the user: "The crowdfunding goal has already been reached."
+User Cancellation: Correctly handles and notifies when a connection is closed.
+
+Network Integrity: Validates connection to the Stellar Testnet Horizon server.
+
+Data Sanitization: Ensures transaction inputs are correctly validated before being sent to the network.
+
+App Ui: ./media/Ui.png
+Test passed: ./media/PASSED-TEST.png
+Deployment: ./media/DEPLOYMENT.png
+
+🛠️ Local Development
+Clone: git clone [https://github.com/N-thnI/StellarFund.git](https://github.com/N-thnI/StellarFund.git)
+
+Install: npm install
+
+Test: npm test
+
+Dev: npm run dev
+
+📂 Project Structure
+contracts/: Smart contract source and logic.
+
+src/lib/: Core Stellar SDK and wallet initialization.
+
+src/__tests__/: Unit and integration test suites.
+
+src/components/: Premium UI components with loading states.
