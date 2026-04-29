@@ -32,9 +32,11 @@ Network Integrity: Validates connection to the Stellar Testnet Horizon server.
 
 Data Sanitization: Ensures transaction inputs are correctly validated before being sent to the network.
 
-App Ui: ./media/Ui.png
-Test passed: ./media/PASSED-TEST.png
-Deployment: ./media/DEPLOYMENT.png
+![App UI](./media/UI.png)
+
+![Test Passed](./media/PASSED-TEST.png)
+
+![Deployment](./media/DEPLOYMENT.png)
 
 🛠️ Local Development
 Clone: git clone [https://github.com/N-thnI/StellarFund.git](https://github.com/N-thnI/StellarFund.git)
